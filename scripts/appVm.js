@@ -1,12 +1,26 @@
-/*jslint nomen: true, plusplus: true*/
+/*jslint nomen: true, plusplus: true, regexp: true*/
+/*globals ko, ElementVm, elementRepo, console*/
 
-(function (window) {
-    "use strict";
+
+// Incharge of everything here
+// Bridge between cart & product
+
+(function (window, ko, elementRepo, ElementVm) {
+    'use strict';
 
     window.AppVm = function () {
-        var _self = {};
+        // create object
+        var _self = {},
+            i;
 
+        _self.elementList = ko.observableArray([]);
 
+        for (i = 0; i < elementRepo.length; i++) {
+            _self.elementList.push(new ElementVm(elementRepo[i]));
+        }
+
+        // return object
+        return _self;
     };
 
-}(window));
+}(window, ko, elementRepo, ElementVm));

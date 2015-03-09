@@ -44,7 +44,7 @@
 
 body {
     background: #f5f5f5;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
 
@@ -86,6 +86,11 @@ ul {
 
 .element {
     &:extend(.card-style);
+    line-height: 1.5;
+}
+
+.content {
+    transition: 0.25ms
 }
 
 .element-name {
@@ -217,8 +222,12 @@ ul {
         position: relative;
         display: inline-block;
         vertical-align: top;
-        height: 200px;
-        margin: 10px;
+        height: 165px;
+        margin: 10px 20px 10px 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
 
         @media screen and (max-width: 600px) {
             display: block;
@@ -230,7 +239,7 @@ ul {
 
     .element-name {
         display: block;
-        color: @brand;
+        color: @theme-color;
         font-size: 16px;
         line-height: 1.25;
     }

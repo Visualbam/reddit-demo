@@ -8,6 +8,7 @@
         // create object
         var _self = {},
             i,
+            x,
             isActive = false;
 
         _self.elementList = ko.observableArray([]);
@@ -17,8 +18,13 @@
         }
 
         _self.showContent = function (element) {
+            for (x = 0; x < _self.elementList().length; x++) {
+                if (_self.elementList()[x].isActive(true)) {
+                    _self.elementList()[x].isActive(false);
+                }
+            }
+
             element.isActive(true);
-            console.log(element);
         };
 
         // return object

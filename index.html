@@ -10,7 +10,6 @@
 
     <body>
 
-
         <section>
             <span class="toggler active" data-toggle="grid"><span class="entypo-layout"></span></span>
             <span class="toggler" data-toggle="list"><span class="entypo-list"></span></span>
@@ -20,8 +19,10 @@
                 <li class="element" data-bind="click: $parent.showContent">
 
                     <span class="element-type list-only" data-bind="text: type"></span>
+                    <span class="entypo-newspaper list-only element-type"></span>
                     <span class="element-name" data-bind="text: title"></span>
                     <span class="element-type grid-only" data-bind="text: type"></span>
+                    <span class="entypo-newspaper grid-only element-type"></span>
 
                     <div class="pull-right">
                         <span class="element-progress">
@@ -47,7 +48,7 @@
             </ul>
         </section>
 
-        <section class="content">
+        <section class="content content">
             <div class="element-content">
                 <ul class="element-list" data-bind="foreach: elementList">
                     <!-- ko if: isActive() -->

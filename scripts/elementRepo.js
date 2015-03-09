@@ -24,7 +24,7 @@ var elementRepo = (function () {
             title: 'User stories',
             duedate: '6/25/15',
             type: 'text',
-            content: 'Often, when developing software, we develop to a specification that is the result of planning and design. I’m not going to get into this subject in depth. However, user stories will be used throughout this course, so we need to understand them before moving on. '
+            content: 'Often, when developing software, we develop to a specification that is the result of planning and design. I’m not going to get into this subject in depth. However, user stories will be used throughout this course, so we need to understand them before moving on.'
         }, {
             title: 'Environment setup',
             duedate: '6/26/15',

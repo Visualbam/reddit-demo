@@ -22,20 +22,330 @@
 // _Accessibility.less
 //
 
-.content {
-    display: flex;
-    align-content: space-between;
-    width: 80%;
+
+
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("http://weloveiconfonts.com/api/?family=entypo");
+
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+@primary-text-color: #000;
+@secondary-text-color: #A1A1A4;
+//@theme-color: #8DC63F;
+@theme-color: #DA4051;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f5f5;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 10px;
 
-    .elements {
-        display: block;
-        flex: 1;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 0 0 1px rgba(255,255,255,0.004);
+    font-size: 100%;
+    font-weight: 400;
+    line-height: 1.25;
+    color: dimgray;
+}
+
+.toggler {
+    color: @secondary-text-color;
+    font-size: 1.25em;
+    margin-left: 8px;
+    text-align: center;
+    cursor: pointer;
+
+    &.active {
+        color: @primary-text-color;
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-style {
+    display: block;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 2px;
+
+    background: white;
+    box-shadow: 0 2px 1px rgba(170,170,170,0.25);
+}
+
+.element {
+    &:extend(.card-style);
+}
+
+.element-name {
+    font-weight: 400;
+}
+
+.list {
+    .element {
+        position: relative;
+        padding: 0;
+
+        font-size: 14px;
+        line-height: 40px;
+
+        .pull-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        @media screen and (max-width: 800px) {
+            .stage:not(.active) {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .element-progress-bg {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .pull-right {
+                position: static;
+                line-height: 20px;
+                padding-bottom: 10px;
+            }
+        }
     }
 
-    .element-content {
-        display: block;
-        flex: 1;
+    .element-type,
+    .element-progress,
+    .element-completes,
+    .element-end-date {
+        color: @secondary-text-color;
     }
+
+    .element-type,
+    .element-completes,
+    .element-end-date,
+    .element-name,
+    .element-stage {
+        margin: 0 10px;
+    }
+
+    .element-type {
+        margin-right: 0;
+    }
+
+    .element-end-date,
+    .element-completes,
+    .element-type,
+    .element-name {
+        vertical-align: middle;
+
+    }
+
+    .element-end-date {
+        display: inline-block;
+        width: 100px;
+        white-space: nowrap;
+
+        overflow: hidden;
+    }
+}
+
+.element-stage .stage {
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0 2px;
+
+    background: #f2f2f2;
+    text-indent: -9999px;
+    color: transparent;
+    line-height: 16px;
+
+    &.active {
+        background: @secondary-text-color;
+    }
+}
+
+
+// list toggle
+.list {
+    .list-only {
+        display: auto;
+    }
+    .grid-only {
+        display: none !important;
+    }
+}
+
+
+// grid toggle
+.grid {
+    .grid-only {
+        display: auto;
+    }
+    .list-only {
+        display: none !important;
+    }
+}
+
+//grid element
+.grid {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap row;
+
+    .element {
+        flex: 1;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        height: 200px;
+        margin: 10px;
+
+        @media screen and (max-width: 600px) {
+            display: block;
+
+            height: 150px;
+            margin: 10px auto;
+        }
+    }
+
+    .element-name {
+        display: block;
+        color: @brand;
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    .element-type {
+        font-size: 11px;
+        line-height: 16px;
+        text-transform: uppercase;
+    }
+
+    .element-type,
+    .element-end-date {
+        color: @secondary-text-color;
+    }
+
+    .element-end-date {
+        &:before {
+            content: 'Ends\00a0';
+        }
+
+        &.ended:before {
+            content: 'Ended\00a0';
+        }
+    }
+
+    .element-progress {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        border-top: 1px solid #eee;
+        font-size: 13px;
+    }
+
+    .element-progress-bg {
+        width: 40%;
+        display: block;
+
+        @media screen and (max-width: 200px) {
+            display: none;
+        }
+    }
+
+    .element-progress-labels {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        line-height: 40px;
+
+        @media screen and (max-width: 200px) {
+            right: auto;
+            left: 10px;
+        }
+    }
+
+    .element-progress-label {
+        line-height: 21px;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .element-completes {
+        line-height: 21px;
+        font-size: 13px;
+        vertical-align: middle;
+    }
+
+    .element-stage {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        .stage {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    }
+
+    .element-end-date {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+
+// Progress
+.element-progress-label {
+    vertical-align: middle;
+    margin: 0 10px;
+    color: @theme-color;
+}
+
+.element-progress-bg {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.element-progress-fg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    background: @theme-color;
 }

@@ -10,6 +10,14 @@
     user-select: none;
 }
 
+// Convert pixel value to rem
+.rem-calc(@sizeValue) {
+    @remValue: @sizeValue;
+    @pxValue: (@sizeValue * 10);
+    font-size: ~"@{pxValue}px";
+    font-size: ~"@{remValue}rem";
+}
+
 //////////////////////////////////////////////////////////////////
 // Stolden from Bootstrap
 //////////////////////////////////////////////////////////////////

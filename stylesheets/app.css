@@ -449,8 +449,7 @@ html {
 }
 .card-style,
 .elements ul li {
-  display: block;
-  margin-top: 10px;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 2px;
   background: white;
@@ -463,20 +462,19 @@ html {
   position: relative;
 }
 .elements .information h1 {
-  display: block;
   color: #da4051;
   font-size: 1rem;
   line-height: 1.25;
   margin-top: 0;
 }
 .elements .progress {
-  display: block;
-  position: relative;
-  width: 100%;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  display: flex;
   padding: 0.5rem 0 0;
   border-top: 1px solid #eee;
-  font-size: 13px;
   margin-top: 1rem;
+  justify-content: space-between;
 }
 .elements .progress .background {
   display: inline-block;
@@ -487,43 +485,16 @@ html {
   border-radius: 2px;
   overflow: hidden;
   background: #dedbdd;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 .elements .progress .background span {
   position: absolute;
-  top: 0;
-  bottom: 0;
   height: 100%;
-  left: 0;
-  margin: 0;
   background: #da4051;
 }
-.elements .progress .complete {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  line-height: 40px;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  width: 100px;
-  height: 4px;
-  border-radius: 2px;
-  overflow: hidden;
-  background: #eee;
-}
 .elements .progress .complete span {
-  line-height: 21px;
-  font-size: 13px;
-  font-weight: 400;
-  vertical-align: middle;
   margin: 0 10px;
   color: #da4051;
-}
-.elements .progress .complete span:last-child {
-  line-height: 21px;
-  font-size: 13px;
-  vertical-align: middle;
 }
 @font-face {
   font-family: 'entypo';
@@ -1390,6 +1361,7 @@ html {
 }
 html {
   box-sizing: border-box;
+  font-size: 16px;
 }
 *,
 *:before,

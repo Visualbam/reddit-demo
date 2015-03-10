@@ -26,17 +26,19 @@
                     <li data-bind="click: $parent.showContent">
                         <div class="information">
                             <h1 data-bind="text: title"></h1>
-                            <span data-bind="text: type"></span>
-                            <span class="entypo-newspaper"></span>
+                            <!--<span data-bind="text: type"></span>
+                                <span class="entypo-newspaper"></span>-->
                         </div>
                         <div class="progress">
-                            <span class="background">
-                                <span style="width: 88%;"></span>
-                            </span>
-                            <span class="complete">
-                                <span>88%</span>
-                                <span>490 / 500</span>
-                            </span>
+                            <div class="bar">
+                                <span class="background">
+                                    <span style="width: 68%;"></span>
+                                </span>
+                                <span class="complete">
+                                    <span>68%</span>
+                                    <span>490 / 500</span>
+                                </span>
+                            </div>
                             <span class="date ended" data-bind="text: duedate">
                                 2014 - May 10
                             </span>

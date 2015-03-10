@@ -447,6 +447,84 @@ html {
 html {
   color: blue;
 }
+.card-style,
+.elements ul li {
+  display: block;
+  margin-top: 10px;
+  padding: 1rem;
+  border-radius: 2px;
+  background: white;
+  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
+}
+.elements ul li {
+  line-height: 1.5;
+  border: 2px solid transparent;
+  transition: 0.25s all ease-in-out;
+  position: relative;
+}
+.elements .information h1 {
+  display: block;
+  color: #da4051;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-top: 0;
+}
+.elements .progress {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0 0;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  margin-top: 1rem;
+}
+.elements .progress .background {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 50px;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #dedbdd;
+  margin-right: 1rem;
+}
+.elements .progress .background span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  background: #da4051;
+}
+.elements .progress .complete {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  line-height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #eee;
+}
+.elements .progress .complete span {
+  line-height: 21px;
+  font-size: 13px;
+  font-weight: 400;
+  vertical-align: middle;
+  margin: 0 10px;
+  color: #da4051;
+}
+.elements .progress .complete span:last-child {
+  line-height: 21px;
+  font-size: 13px;
+  vertical-align: middle;
+}
 @font-face {
   font-family: 'entypo';
   font-style: normal;
@@ -1310,11 +1388,28 @@ html {
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
 }
-* {
+html {
   box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 body {
   background: #dfdfdf;
+}
+header {
+  font: 600 20px/1 'Open Sans', sans-serif;
+  text-align: center;
+  color: white;
+  background: #c22537;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+@media screen and (min-width: 900px) {
+  header {
+    margin-bottom: 2rem;
+  }
 }
 .main {
   background: #f5f5f5;
@@ -1329,269 +1424,8 @@ body {
   line-height: 1.25;
   color: dimgray;
 }
-.toggler {
-  color: #a1a1a4;
-  font-size: 1.25em;
-  margin-left: 8px;
-  text-align: center;
-  cursor: pointer;
-}
-.toggler.active {
-  color: #000000;
-}
-header {
-  font: 600 20px/1 'Open Sans', sans-serif;
-  text-align: center;
-  color: white;
-  background: #c22537;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-@media screen and (min-width: 900px) {
-  header {
-    margin-bottom: 2rem;
-  }
-}
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.card-style,
-.element {
-  display: block;
-  margin-top: 10px;
-  padding: 20px;
-  border-radius: 2px;
-  background: white;
-  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
-}
-.element {
-  line-height: 1.5;
-}
-.content {
-  transition: 0.25ms;
-}
-.element-name {
-  font-weight: 400;
-}
-.list .element {
-  position: relative;
-  padding: 0;
-  font-size: 14px;
-  line-height: 40px;
-}
-.list .element .pull-right {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-@media screen and (max-width: 800px) {
-  .list .element .stage:not(.active) {
-    display: none;
-  }
-}
-@media screen and (max-width: 700px) {
-  .list .element .element-progress-bg {
-    display: none;
-  }
-}
-@media screen and (max-width: 600px) {
-  .list .element .pull-right {
-    position: static;
-    line-height: 20px;
-    padding-bottom: 10px;
-  }
-}
-.list .element-type,
-.list .element-progress,
-.list .element-completes,
-.list .element-end-date {
-  color: #a1a1a4;
-}
-.list .element-type,
-.list .element-completes,
-.list .element-end-date,
-.list .element-name,
-.list .element-stage {
-  margin: 0 10px;
-}
-.list .element-type {
-  margin-right: 0;
-}
-.list .element-end-date,
-.list .element-completes,
-.list .element-type,
-.list .element-name {
-  vertical-align: middle;
-}
-.list .element-end-date {
-  display: inline-block;
-  width: 100px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.element-stage .stage {
-  display: inline-block;
-  vertical-align: middle;
-  width: 16px;
-  height: 16px;
-  overflow: hidden;
-  border-radius: 50%;
-  padding: 0;
-  margin: 0 2px;
-  background: #f2f2f2;
-  text-indent: -9999px;
-  color: transparent;
-  line-height: 16px;
-}
-.element-stage .stage.active {
-  background: #a1a1a4;
-}
-.list .list-only {
-  display: auto;
-}
-.list .grid-only {
-  display: none !important;
-}
-.grid .grid-only {
-  display: auto;
-}
-.grid .list-only {
-  display: none !important;
-}
-@media screen and (min-width: 900px) {
-  .grid {
-    display: flex;
-    flex-basis: 0;
-    justify-content: space-between;
-    flex-flow: row wrap;
-  }
-}
-.grid .element {
-  flex: 0 1 auto;
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  height: 165px;
-  margin: 10px 20px 0;
-  display: block;
-  height: 150px;
-}
-.grid .element:last-child {
-  margin-right: 0;
-}
-@media screen and (min-width: 900px) {
-  .grid .element {
-    margin-left: 1rem;
-  }
-  .grid .element:first-child {
-    margin-left: 0;
-  }
-}
-@media screen and (min-width: 900px) {
-  .grid .element {
-    flex: 2;
-  }
-}
-.grid .element-name {
-  display: block;
-  color: #da4051;
-  font-size: 16px;
-  line-height: 1.25;
-}
-.grid .element-type {
-  font-size: 11px;
-  line-height: 16px;
-  text-transform: uppercase;
-}
-.grid .element-type,
-.grid .element-end-date {
-  color: #a1a1a4;
-}
-.grid .element-end-date:before {
-  content: 'Ends\00a0';
-}
-.grid .element-end-date.ended:before {
-  content: 'Ended\00a0';
-}
-.grid .element-progress {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding: 20px;
-  border-top: 1px solid #eee;
-  font-size: 13px;
-}
-.grid .element-progress-bg {
-  width: 40%;
-  display: block;
-}
-@media screen and (max-width: 200px) {
-  .grid .element-progress-bg {
-    display: none;
-  }
-}
-.grid .element-progress-labels {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  line-height: 40px;
-}
-@media screen and (max-width: 200px) {
-  .grid .element-progress-labels {
-    right: auto;
-    left: 10px;
-  }
-}
-.grid .element-progress-label {
-  line-height: 21px;
-  font-size: 13px;
-  font-weight: 400;
-}
-.grid .element-completes {
-  line-height: 21px;
-  font-size: 13px;
-  vertical-align: middle;
-}
-.grid .element-stage {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-.grid .element-stage .stage {
-  display: none;
-}
-.grid .element-stage .active {
-  display: block;
-}
-.grid .element-end-date {
-  font-size: 12px;
-  line-height: 20px;
-}
-.element-progress-label {
-  vertical-align: middle;
-  margin: 0 10px;
-  color: #da4051;
-}
-.element-progress-bg {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  width: 100px;
-  height: 4px;
-  border-radius: 2px;
-  overflow: hidden;
-  background: #eee;
-}
-.element-progress-fg {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  margin: 0;
-  background: #da4051;
 }

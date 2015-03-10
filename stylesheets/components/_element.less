@@ -1,0 +1,104 @@
+// main: ../app.less
+
+.card-style {
+    display: block;
+    margin-top: 10px;
+    padding: 1rem;
+    border-radius: 2px;
+
+    background: white;
+    box-shadow: 0 2px 1px rgba(170,170,170,0.25);
+}
+
+
+.elements {
+    ul li {
+        &:extend(.card-style);
+
+        line-height: 1.5;
+        border: 2px solid transparent;
+        transition: 0.25s all ease-in-out;
+        position: relative;
+    }
+
+    .information {
+        h1 {
+            display: block;
+            color: @primary;
+            font-size: 1rem;
+            line-height: 1.25;
+            margin-top: 0;
+        }
+    }
+
+    &.gird {
+
+    }
+
+    &.list {
+
+    }
+
+    .progress {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 0.5rem 0 0;
+        border-top: 1px solid #eee;
+        font-size: 13px;
+        margin-top: 1rem;
+
+        .background {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            width: 50px;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            background: @cinderblock;
+            margin-right: 1rem;
+
+            span {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                height: 100%;
+                left: 0;
+                margin: 0;
+                background: @primary;
+            }
+        }
+
+        .complete {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            line-height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            width: 100px;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            background: #eee;
+
+            span {
+                line-height: 21px;
+                font-size: 13px;
+                font-weight: 400;
+                vertical-align: middle;
+                margin: 0 10px;
+                color: @primary;
+
+            }
+
+            span:last-child {
+                line-height: 21px;
+                font-size: 13px;
+                vertical-align: middle;
+            }
+        }
+    }
+}

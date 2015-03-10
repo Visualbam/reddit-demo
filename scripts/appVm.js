@@ -8,24 +8,21 @@
         // create object
         var _self = {},
             i,
-            x,
-            isActive = false;
+            x;
 
         _self.elementList = ko.observableArray([]);
+        _self.isGrid = ko.observable(true);
+        _self.isList = ko.observable(false);
 
         for (i = 0; i < elementRepo.length; i++) {
             _self.elementList.push(new ElementVm(elementRepo[i]));
         }
 
-        _self.showContent = function (element) {
-            for (x = 0; x < _self.elementList().length; x++) {
-                if (_self.elementList()[x].isActive(true)) {
-                    _self.elementList()[x].isActive(false);
-                }
-            }
+        // Functions for switching between grid / list
 
-            element.isActive(true);
-        };
+
+
+
 
         // return object
         return _self;

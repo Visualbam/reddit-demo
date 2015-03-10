@@ -15,43 +15,36 @@
         </header>
 
         <div class="main">
-            <section>
-                <span class="toggler active" data-toggle="grid"><span class="entypo-layout"></span></span>
-                <span class="toggler" data-toggle="list"><span class="entypo-list"></span></span>
 
-                <ul class="elements grid" data-bind="foreach: elementList">
+            <div class="elements grid">
+                <div class="controls">
+                    <span><span class="entypo-layout"></span></span>
+                    <span><span class="entypo-list"></span></span>
+                </div>
+                <ul data-bind="foreach: elementList">
                     <!-- ko if: type() == "text" -->
-                    <li class="element" data-bind="click: $parent.showContent">
-
-                        <span class="element-type list-only" data-bind="text: type"></span>
-                        <span class="entypo-newspaper list-only element-type"></span>
-                        <span class="element-name" data-bind="text: title"></span>
-                        <span class="element-type grid-only" data-bind="text: type"></span>
-                        <span class="entypo-newspaper grid-only element-type"></span>
-
-                        <div class="pull-right">
-                            <span class="element-progress">
-                                <span class="element-progress-bg">
-                                    <span class="element-progress-fg" style="width: 88%;"></span>
-                                </span>
-                                <span class="element-progress-labels">
-                                    <span class="element-progress-label">
-                                        88%
-                                    </span>
-                                    <span class="element-completes">
-                                        490 / 500
-                                    </span>
-                                </span>
+                    <li data-bind="click: $parent.showContent">
+                        <div class="information">
+                            <h1 data-bind="text: title"></h1>
+                            <span data-bind="text: type"></span>
+                            <span class="entypo-newspaper"></span>
+                        </div>
+                        <div class="progress">
+                            <span class="background">
+                                <span style="width: 88%;"></span>
                             </span>
-                            <span class="element-end-date ended" data-bind="text: duedate">
+                            <span class="complete">
+                                <span>88%</span>
+                                <span>490 / 500</span>
+                            </span>
+                            <span class="date ended" data-bind="text: duedate">
                                 2014 - May 10
                             </span>
                         </div>
-
                     </li>
                     <!-- /ko -->
                 </ul>
-            </section>
+            </div>
 
             <section class="content">
                 <div class="element-content">

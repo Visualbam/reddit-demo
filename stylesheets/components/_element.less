@@ -9,13 +9,36 @@
 }
 
 .elements {
-    ul li {
-        &:extend(.card-style);
+    ul {
+        font-size: 0;
 
-        line-height: 1.5;
-        border: 2px solid transparent;
-        transition: 0.25s all ease-in-out;
-        position: relative;
+        li {
+            &:extend(.card-style);
+
+            line-height: 1.5;
+            border: 2px solid transparent;
+            transition: 0.25s all ease-in-out;
+            position: relative;
+
+            @media screen and (min-width: 600px) {
+                width: 49%;
+                margin-left: 2%;
+                display: inline-block;
+
+                &:nth-child(odd) {
+                    margin-left: 0;
+                }
+            }
+
+            @media screen and (min-width: 1000px) {
+                width: 24%;
+                margin-left: 1.5%;
+
+                &:nth-child(1n + 2) {
+                    margin-left: 1.333%;
+                }
+            }
+        }
     }
 
     .information {
@@ -47,7 +70,7 @@
             display: inline-block;
             vertical-align: middle;
             position: relative;
-            width: 50px;
+            width: 60px;
             height: 4px;
             border-radius: 2px;
             overflow: hidden;

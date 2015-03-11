@@ -455,11 +455,33 @@ html {
   background: white;
   box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
 }
+.elements ul {
+  font-size: 0;
+}
 .elements ul li {
   line-height: 1.5;
   border: 2px solid transparent;
   transition: 0.25s all ease-in-out;
   position: relative;
+}
+@media screen and (min-width: 600px) {
+  .elements ul li {
+    width: 49%;
+    margin-left: 2%;
+    display: inline-block;
+  }
+  .elements ul li:nth-child(odd) {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .elements ul li {
+    width: 24%;
+    margin-left: 1.5%;
+  }
+  .elements ul li:nth-child(1n + 2) {
+    margin-left: 1.333%;
+  }
 }
 .elements .information h1 {
   color: #da4051;
@@ -480,7 +502,7 @@ html {
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  width: 50px;
+  width: 60px;
   height: 4px;
   border-radius: 2px;
   overflow: hidden;

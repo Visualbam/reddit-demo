@@ -14,11 +14,6 @@
         _self.toggleGridCss = ko.observable('grid');
         _self.activeElement = ko.observable();
 
-        for (i = 0; i < elementRepo.length; i++) {
-            _self.elementList.push(new ElementVm(elementRepo[i]));
-        }
-
-        // Functions for switching between grid / list
         _self.toggleBtnCss = function (buttonType, data) {
             if (buttonType === 'grid') {
                 _self.toggleGridCss('grid');
@@ -30,6 +25,10 @@
         _self.showContent = function (data) {
             _self.activeElement(data);
         };
+
+        for (i = 0; i < elementRepo.length; i++) {
+            _self.elementList.push(new ElementVm(elementRepo[i]));
+        }
 
         // return object
         return _self;

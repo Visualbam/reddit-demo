@@ -15,6 +15,11 @@
         _self.duedate = ko.observable(data.duedate || '');
         _self.type = ko.observable(data.type || '');
         _self.content = ko.observable(data.content || '');
+        _self.maxValue = ko.observable(data.maxValue || 0);
+        _self.value = ko.observable(data.value || 0);
+        _self.percentComplete = ko.computed(function () {
+            return Math.floor((_self.value() * 100) / _self.maxValue());
+        }, this);
 
         // return object
         return _self;

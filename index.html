@@ -30,10 +30,10 @@
                         <div class="progress">
                             <div class="bar">
                                 <span class="background">
-                                    <span style="width: 68%;"></span>
+                                    <span data-bind="style: { width: percentComplete() + '%' }"></span>
                                 </span>
                                 <span class="complete">
-                                    <span>68%</span>
+                                    <span data-bind="text: percentComplete()  + '%'"></span>
                                     <span>490 / 500</span>
                                 </span>
                             </div>

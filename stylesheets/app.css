@@ -465,6 +465,8 @@ html {
   width: 97.91666667%;
   margin: 0 1.04166667%;
   margin-bottom: 1rem;
+  transition: background 0.15s, border 0.15s;
+  transition-timing-function: ease-in-out;
   line-height: 1.5;
   border: 1px solid transparent;
 }

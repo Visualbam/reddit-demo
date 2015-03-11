@@ -448,7 +448,8 @@ html {
   color: blue;
 }
 .card-style,
-.elements ul li {
+.elements ul li,
+.content {
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 2px;
@@ -463,11 +464,13 @@ html {
   float: left;
   width: 97.91666667%;
   margin: 0 1.04166667%;
-  margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 1.5;
-  border: 2px solid transparent;
-  transition: 0.25s all ease-in-out;
+  border: 1px solid transparent;
+}
+.elements ul li:hover {
+  background: #fafafa;
+  border: 1px solid #ebeaeb;
 }
 .elements .controls {
   display: inline;
@@ -482,7 +485,7 @@ html {
   margin-right: 0.25rem;
 }
 .elements .information h1 {
-  color: #da4051;
+  color: #da3e50;
   font-size: 1rem;
   line-height: 1.25;
   margin-top: 0;
@@ -502,7 +505,7 @@ html {
     float: left;
     width: 22.91666667%;
     margin: 0 1.04166667%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 }
 .elements.list ul {
@@ -546,17 +549,17 @@ html {
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
-  background: #dedbdd;
+  background: #dddadc;
   margin-right: 0.5rem;
 }
 .elements .progress .background span {
   position: absolute;
   height: 100%;
-  background: #da4051;
+  background: #da3e50;
 }
 .elements .progress .complete span {
   margin: 0 10px;
-  color: #da4051;
+  color: #da3e50;
 }
 @font-face {
   font-family: 'entypo';
@@ -1434,12 +1437,12 @@ header {
   font: 600 20px/1 'Open Sans', sans-serif;
   text-align: center;
   color: white;
-  background: #c22537;
+  background: #c12537;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 @media screen and (min-width: 900px) {
   header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }
 .main {
@@ -1448,6 +1451,8 @@ header {
   float: left;
   width: 97.91666667%;
   margin: 0 1.04166667%;
+  width: 100%;
+  margin: 0;
   padding: 1rem;
   font-family: 'Lato', sans-serif;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.004);
@@ -1455,6 +1460,32 @@ header {
   font-weight: 400;
   line-height: 1.25;
   color: dimgray;
+}
+@media screen and (min-width: 1000px) {
+  .main {
+    display: inline;
+    float: left;
+    width: 97.91666667%;
+    margin: 0 1.04166667%;
+  }
+}
+.content {
+  display: inline;
+  float: left;
+  width: 97.91666667%;
+  margin: 0 1.04166667%;
+  line-height: 1.5;
+  transition: all 0.25s ease-in-all;
+  margin-bottom: 1rem;
+}
+.content h1 {
+  color: #da3e50;
+  margin: 0 0 1rem;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 0.5rem;
 }
 ul {
   list-style: none;

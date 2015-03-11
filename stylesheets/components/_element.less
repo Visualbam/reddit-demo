@@ -15,12 +15,15 @@
         li {
             &:extend(.card-style);
             .column(12);
-            margin-top: 1rem;
             margin-bottom: 1rem;
 
             line-height: 1.5;
-            border: 2px solid transparent;
-            transition: 0.25s all ease-in-out;
+            border: 1px solid transparent;
+
+            &:hover {
+                background: lighten(@cinderblock, 12%);
+                border: 1px solid lighten(@cinderblock, 6%);
+            }
         }
     }
 
@@ -51,7 +54,7 @@
 
         @media screen and (min-width: 1000px) {
             .column(3);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
     }
 

@@ -12,6 +12,7 @@
 
         _self.elementList = ko.observableArray([]);
         _self.toggleGridCss = ko.observable('grid');
+        _self.activeElement = ko.observable();
 
         for (i = 0; i < elementRepo.length; i++) {
             _self.elementList.push(new ElementVm(elementRepo[i]));
@@ -26,15 +27,12 @@
             }
         };
 
+        _self.showContent = function (data) {
+            _self.activeElement(data);
+        };
+
         // return object
         return _self;
     };
 
 }(window, ko, elementRepo, ElementVm));
-
-
-//_self.isGrid = ko.observable(false);
-//
-//_self.toggleGrid = function (data, event) {
-//    _self.isGrid(!_self.isGrid()); //toggle the isGrid value between true/false
-//};

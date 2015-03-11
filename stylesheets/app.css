@@ -459,35 +459,77 @@ html {
   font-size: 0;
 }
 .elements ul li {
+  display: inline;
+  float: left;
+  width: 97.91666667%;
+  margin: 0 1.04166667%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   line-height: 1.5;
   border: 2px solid transparent;
   transition: 0.25s all ease-in-out;
-  position: relative;
 }
-@media screen and (min-width: 600px) {
-  .elements ul li {
-    width: 49%;
-    margin-left: 2%;
-    display: inline-block;
-  }
-  .elements ul li:nth-child(odd) {
-    margin-left: 0;
-  }
+.elements .controls {
+  display: inline;
+  float: left;
+  width: 97.91666667%;
+  margin: 0 1.04166667%;
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
-@media screen and (min-width: 1000px) {
-  .elements ul li {
-    width: 24%;
-    margin-left: 1.5%;
-  }
-  .elements ul li:nth-child(1n + 2) {
-    margin-left: 1.333%;
-  }
+.elements .controls span {
+  margin-right: 0.25rem;
 }
 .elements .information h1 {
   color: #da4051;
   font-size: 1rem;
   line-height: 1.25;
   margin-top: 0;
+}
+@media screen and (min-width: 600px) {
+  .elements.grid ul li {
+    display: inline;
+    float: left;
+    width: 47.91666667%;
+    margin: 0 1.04166667%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .elements.grid ul li {
+    display: inline;
+    float: left;
+    width: 22.91666667%;
+    margin: 0 1.04166667%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+.elements.list ul {
+  display: inline;
+  float: left;
+  width: 97.91666667%;
+  margin: 0 1.04166667%;
+}
+.elements.list ul li {
+  margin: 0 0 1rem 0;
+  width: 100%;
+}
+.elements.list ul li h1 {
+  margin: 0;
+}
+.elements.list ul li div {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+@media screen and (min-width: 600px) {
+  .elements.list ul li {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .elements .progress {
   font-size: 13px;
@@ -1390,9 +1432,6 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body {
-  background: #dfdfdf;
-}
 header {
   font: 600 20px/1 'Open Sans', sans-serif;
   text-align: center;
@@ -1407,10 +1446,11 @@ header {
 }
 .main {
   background: #f5f5f5;
-  max-width: 1000px;
-  margin: 0 auto;
+  display: inline;
+  float: left;
+  width: 97.91666667%;
+  margin: 0 1.04166667%;
   padding: 1rem;
-  border-radius: 5px;
   font-family: 'Lato', sans-serif;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.004);
   font-size: 100%;

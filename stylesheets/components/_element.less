@@ -14,30 +14,23 @@
 
         li {
             &:extend(.card-style);
+            .column(12);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
 
             line-height: 1.5;
             border: 2px solid transparent;
             transition: 0.25s all ease-in-out;
-            position: relative;
+        }
+    }
 
-            @media screen and (min-width: 600px) {
-                width: 49%;
-                margin-left: 2%;
-                display: inline-block;
+    .controls {
+        .column(12);
+        .font-size(20px);
+        margin-bottom: 0.5rem;
 
-                &:nth-child(odd) {
-                    margin-left: 0;
-                }
-            }
-
-            @media screen and (min-width: 1000px) {
-                width: 24%;
-                margin-left: 1.5%;
-
-                &:nth-child(1n + 2) {
-                    margin-left: 1.333%;
-                }
-            }
+        span {
+            margin-right: 0.25rem;
         }
     }
 
@@ -50,12 +43,42 @@
         }
     }
 
-    &.grid {
+    &.grid ul li {
+        @media screen and (min-width: 600px) {
+            .column(6);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
 
+        @media screen and (min-width: 1000px) {
+            .column(3);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
     }
 
-    &.list {
+    &.list ul {
+        .column(12);
 
+        li {
+            margin: 0 0 1rem 0;
+            width: 100%;
+
+            h1 {
+                margin: 0;
+            }
+
+            div {
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+
+            @media screen and (min-width: 600px) {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
     }
 
     .progress {

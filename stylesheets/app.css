@@ -488,22 +488,20 @@ html {
   margin-top: 0;
 }
 @media screen and (min-width: 600px) {
-  .elements.grid ul li {
+  .elements.grid li {
     display: inline;
     float: left;
     width: 47.91666667%;
     margin: 0 1.04166667%;
-    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 }
 @media screen and (min-width: 1000px) {
-  .elements.grid ul li {
+  .elements.grid li {
     display: inline;
     float: left;
     width: 22.91666667%;
     margin: 0 1.04166667%;
-    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 }

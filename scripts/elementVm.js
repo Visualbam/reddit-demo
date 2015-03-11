@@ -15,7 +15,6 @@
         _self.duedate = ko.observable(data.duedate || '');
         _self.type = ko.observable(data.type || '');
         _self.content = ko.observable(data.content || '');
-        _self.isActive = ko.observable(data.isActive || false);
 
         // return object
         return _self;

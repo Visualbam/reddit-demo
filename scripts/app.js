@@ -12,6 +12,9 @@
         });
     });
 
-    ko.applyBindings(new AppVm());
+    $(function () {
+        ko.applyBindings(new AppVm());
+    });
+
 
 }(ko, AppVm, jQuery));

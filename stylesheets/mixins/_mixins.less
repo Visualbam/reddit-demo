@@ -10,22 +10,11 @@
     user-select: none;
 }
 
-// ===== REM UNIT MIXINS ====
-@base-font-size-px: 16; // root's font size. @base-font-size-px MUST BE AN INTEGER.
-
-
-@pxtorem-js-function: ~`pxtorem = function(px){ if (typeof rmxsBaseFontSize == 'undefined')  rmxsBaseFontSize = @{base-font-size-px}; return (parseInt(px.replace(/(^\d+)(.+$)/i,'$1')) / rmxsBaseFontSize + 'rem') }`;
-
-
 // ===== FONT MIXINS =====
-.font-size(@value) {
-    font-size: @value;
+.rem(@selector, @amt, @rem-base: @rem-base) when (isunit(@amt, px)) {
+    @{selector}: unit((@amt / @rem-base), rem);
 }
 
-.font-size(@value) when (ispixel(@value)) {
-    @rem-value: ~`pxtorem('@{value}')`;
-    font-size: @rem-value;
-}
 
 //////////////////////////////////////////////////////////////////
 // Stolden from Bootstrap

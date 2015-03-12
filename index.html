@@ -26,17 +26,18 @@
                     <li data-bind="click: $parent.showContent">
                         <div class="information">
                             <h1 data-bind="text: title"></h1>
+                            <p data-bind="text: truncatedContent()"></p>
                         </div>
                         <div class="progress">
                             <div class="bar">
                                 <span class="background">
                                     <span data-bind="style: { width: percentComplete() + '%' }"></span>
                                 </span>
-                                <span class="complete">
-                                    <span data-bind="text: percentComplete()  + '%'"></span>
-                                    <span>490 / 500</span>
-                                </span>
                             </div>
+                            <span class="complete">
+                                <span data-bind="text: percentComplete()  + '%'"></span>
+                                <span>490 / 500</span>
+                            </span>
                         </div>
                     </li>
                     <!-- /ko -->

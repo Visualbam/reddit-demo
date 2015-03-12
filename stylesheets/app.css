@@ -492,7 +492,7 @@ html {
   line-height: 1.25;
   margin-top: 0;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 515px) {
   .elements.grid li {
     display: inline;
     float: left;

@@ -3,59 +3,31 @@
     <head>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Elements Demo</title>
+        <title>Reddit API Demo</title>
         <link rel="stylesheet" href="http://cdn.jsdelivr.net/meyer-reset/2.0/reset.min.css">
         <link rel="stylesheet" href="stylesheets/app.css">
     </head>
 
     <body>
 
-        <header>
-            <img src="https://learn.acatar.com/Content/Brands/learn/Images/logo.png" alt="">
-        </header>
+        <div id="content"></div>
 
-        <div class="main">
+        <script id='defaultTemplate' type='text/html'>
+            <h1>Reddit API</h1>
+        </script>
 
-            <div data-bind="css: toggleGridCss" class="elements">
-                <div class="controls">
-                    <span data-bind="click: toggleBtnCss.bind($data, 'grid')"><span class="entypo-layout"></span></span>
-                    <span data-bind="click: toggleBtnCss.bind($data, 'list')"><span class="entypo-list"></span></span>
-                </div>
-                <ul data-bind="foreach: elementList">
-                    <!-- ko if: type() == "text" -->
-                    <li data-bind="click: $parent.showContent">
-                        <div class="information">
-                            <h1 data-bind="text: title"></h1>
-                            <p data-bind="text: truncatedContent()"></p>
-                        </div>
-                        <div class="progress">
-                            <div class="bar">
-                                <span class="background">
-                                    <span data-bind="style: { width: percentComplete() + '%' }"></span>
-                                </span>
-                            </div>
-                            <span class="complete">
-                                <span data-bind="text: percentComplete()  + '%'"></span>
-                                <span>490 / 500</span>
-                            </span>
-                        </div>
-                    </li>
-                    <!-- /ko -->
-                </ul>
-            </div>
+        <script id='home' type='text/html'>
+            <h1>Reddit /r/funny</h1>
 
-            <!-- ko if: activeElement-->
-            <section class="content" data-bind="with: activeElement">
-                <h1 data-bind="text: title"></h1>
-                <p data-bind="text: content"></p>
-            </section>
-            <!-- /ko -->
-        </div>
+            <ul data-bind='foreach: post'>
+                <li data-bind='text: title'></li>
+            </ul>
+        </script>
+
 
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/knockout/3.3.0/knockout.js"></script>
-        <script src='scripts/elementRepo.js'></script>
-        <script src='scripts/ElementVm.js'></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/sammy/0.7.4/sammy.min.js"></script>
         <script src='scripts/AppVm.js'></script>
         <script src='scripts/app.js'></script>
     </body>

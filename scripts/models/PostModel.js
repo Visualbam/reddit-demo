@@ -4,7 +4,7 @@
 (function (window, ko) {
     "use strict";
 
-    window.postModel = function (data) {
+    window.PostModel = function (data) {
         data = data || {};
 
         var _self = {};

@@ -1,6 +1,6 @@
-/*globals console, jQuery*/
+/*globals console, jQuery, VM, HomeModel*/
 
-(function (window, $) {
+(function (window, $, VM, HomeModel) {
     "use strict";
 
 
@@ -12,10 +12,13 @@
         // Get here is an interceptor for an HTTP GET REQUEST
         // When here 'app.get('#/')' do stuff
         app.get('#/', function () {
-            $.getJSON(url + '/r/funny', function (json) {
-
+            $.getJSON(url + '/r/funny/.json', function (json) {
+                return new VM({
+                    template: 'homeTemplate',
+                    data: new HomeModel(json)
+                });
             });
         });
     };
 
-}(window, jQuery));
+}(window, jQuery, VM, HomeModel));

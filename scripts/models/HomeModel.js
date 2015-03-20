@@ -1,22 +1,24 @@
-/*jslint devel: true, nomen: true*/
-/*globals ko*/
+/*jslint devel: true, nomen: true, plusplus: true*/
+/*globals ko, PostModel*/
 
-(function (window, ko) {
+(function (window, ko, PostModel) {
     "use strict";
 
-    window.homeModel = function (data) {
+    window.HomeModel = function (data) {
         data = data || {};
 
-        var _self = {};
+        var _self = {},
+            redditItems = data.data.children,
+            i;
 
         _self.posts = ko.observableArray([]);
-        _self.addresses
+
         // Loop through reddit data from API and add to our VM
-        for (i = 0; i < data.posts.length; i++) {
-            _self.posts.push(new PostModel(data.posts[i]));
+        for (i = 0; i < redditItems.length; i++) {
+            _self.posts.push(new PostModel(redditItems[i]));
         }
 
         return _self;
     };
 
-}(window, ko));
+}(window, ko, PostModel));

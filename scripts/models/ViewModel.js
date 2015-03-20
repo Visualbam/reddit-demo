@@ -1,18 +1,16 @@
 /*jslint devel: true, eqeq: true, nomen: true*/
 /*globals ko*/
 
-(function (ko, HomeModel) {
+(function (ko, window) {
     "use strict";
 
-    var _self;
-
-    _self.VM = function (model) {
+    window.VM = function (model) {
         model = model || {};
 
         this.template = model.template || 'defaultTemplate';
         this.data = model.data || {};
+
+        return this;
     };
 
-    return _self;
-
-}(ko));
+}(ko, window));

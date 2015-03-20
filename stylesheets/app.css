@@ -1446,11 +1446,12 @@ header {
   color: white;
   background: #c12537;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  float: left;
 }
-@media screen and (min-width: 900px) {
-  header {
-    margin-bottom: 1rem;
-  }
+header img {
+  width: 50px;
+  float: left;
 }
 .main {
   background: #f5f5f5;

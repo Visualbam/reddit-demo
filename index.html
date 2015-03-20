@@ -9,30 +9,45 @@
     </head>
 
     <body>
-<!--        <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>-->
-        <section class="content">
+
+        <header>
+            <img src="https://learn.acatar.com/Content/Brands/learn/Images/logo.png" alt="">
+        </header>
+
+        <div class="main">
+            <!--        <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>-->
             <!-- ko if: viewModel() -->
             <div data-bind="template: { name: viewModel().template, data: viewModel().data }">
             </div>
             <!-- /ko -->
             <!-- ko ifnot: viewModel() -->
             <div>
-               <h1>No ViewModel found! Ruh oh</h1>
+                <h1>No ViewModel found! Ruh oh</h1>
                 <!-- no view model -->
             </div>
             <!-- /ko -->
-        </section>
+        </div>
 
         <script id='defaultTemplate' type='text/html'>
             <h1>Reddit API</h1>
         </script>
 
-        <script id='homeTemplate' type='text/html'>
-            <h1>Reddit /r/funny</h1>
 
-            <ul data-bind='foreach: posts'>
-                <li data-bind='text: title'></li>
-            </ul>
+
+
+
+
+        <script id='homeTemplate' type='text/html'>
+            <div class="elements">
+                <h1>Reddit /r/funny</h1>
+                <ul data-bind="foreach: posts">
+                    <li data-bind="click: $parent.showContent">
+                        <div class="information">
+                            <h1 data-bind="text: title"></h1>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </script>
 
 

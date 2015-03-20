@@ -4,7 +4,7 @@
 (function (ko, window) {
     "use strict";
 
-    window.VM = function (model) {
+    window.ViewModel = function (model) {
         model = model || {};
 
         this.template = model.template || 'defaultTemplate';

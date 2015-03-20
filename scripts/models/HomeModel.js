@@ -15,7 +15,7 @@
 
         // Loop through reddit data from API and add to our VM
         for (i = 0; i < redditItems.length; i++) {
-            _self.posts.push(new PostModel(redditItems[i]));
+            _self.posts.push(new PostModel(redditItems[i].data));
         }
 
         return _self;

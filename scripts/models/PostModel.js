@@ -10,7 +10,6 @@
         var _self = {};
 
         _self.title = ko.observable(data.title || '');
-        _self.description = ko.observable(data.description || '');
 
         return _self;
     };

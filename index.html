@@ -11,45 +11,51 @@
     <body>
 
         <header>
-            <img src="http://i21.photobucket.com/albums/b270/pacfolly/reddit-logo-square-webtreats.png" alt="logo">
+            <a href="/"><img src="http://i21.photobucket.com/albums/b270/pacfolly/reddit-logo-square-webtreats.png" alt="logo"></a>
         </header>
 
-        <div class="main">
-            <!--        <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>-->
+        <div id="main" class="main">
+            <!-- <pre data-bind="text: ko.toJSON($data, null, 2)"></pre> -->
             <!-- ko if: viewModel() -->
             <div data-bind="template: { name: viewModel().template, data: viewModel().data }">
             </div>
             <!-- /ko -->
             <!-- ko ifnot: viewModel() -->
             <div>
-                <h1>No ViewModel found! Ruh oh</h1>
                 <!-- no view model -->
             </div>
             <!-- /ko -->
         </div>
 
-        <script id='defaultTemplate' type='text/html'>
-            <h1>Reddit API</h1>
-        </script>
+        <script id="defaultTemplate" type="text/html"></script>
 
-        <script id='homeTemplate' type='text/html'>
+        <script id="homeTemplate" type="text/html">
             <div class="elements">
                 <h1>Reddit /r/funny</h1>
                 <ul data-bind="foreach: posts">
-                    <li data-bind="click: $parent.showContent">
+                    <li>
                         <div class="information">
-                            <h1 data-bind="text: title"></h1>
+                            <h1><a data-bind="attr: { href: url}, text: title">View Comments</a></h1>
                         </div>
                     </li>
                 </ul>
             </div>
         </script>
 
+        <script id="postTemplate" type="text/html">
+            <h1 data-bind="text: title"></h1>
+        </script>
+
+
+        <!-- Scripts -->
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/knockout/3.3.0/knockout.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/sammy/0.7.4/sammy.min.js"></script>
 
-        <script src='scripts/models/PostModel.js'></script>
+        <script src='scripts/models/posts/RedditModel.js'></script>
+        <script src='scripts/models/posts/PostModel.js'></script>
+        <script src='scripts/models/posts/CommentModel.js'></script>
+
         <script src='scripts/models/HomeModel.js'></script>
         <script src='scripts/models/ViewModel.js'></script>
         <script src='scripts/ViewEngine.js'></script>

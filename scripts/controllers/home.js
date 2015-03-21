@@ -1,6 +1,6 @@
-/*globals console, jQuery, ViewModel, HomeModel, ViewEngine*/
+/*globals console, jQuery, ViewModel, HomeModel, ViewEngine, PostModel*/
 
-(function (window, $, ViewModel, HomeModel, ViewEngine) {
+(function (window, $, ViewModel, HomeModel, ViewEngine, PostModel) {
     "use strict";
 
     window.homeController = function (app) {
@@ -17,6 +17,16 @@
                 }));
             });
         });
+
+        app.get('#/posts/:id', function (params) {
+            $.getJSON(url + '/r/funny/' + params.params.id + '.json', function (json) {
+                ViewEngine.setView(new ViewModel({
+                    template: 'postTemplate',
+                    data: new PostModel(json)
+                }));
+            });
+        });
+
     };
 
-}(window, jQuery, ViewModel, HomeModel, ViewEngine));
+}(window, jQuery, ViewModel, HomeModel, ViewEngine, PostModel));

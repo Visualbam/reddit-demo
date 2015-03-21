@@ -43,7 +43,11 @@
         </script>
 
         <script id="postTemplate" type="text/html">
-            <h1 data-bind="text: title"></h1>
+            <h1 data-bind="text: post.title"></h1>
+            <img data-bind="attr: {src: post.image}" alt="">
+            <ul data-bind="foreach: comments">
+                <li data-bind="text: content"></li>
+            </ul>
         </script>
 
 
@@ -52,11 +56,11 @@
         <script type="text/javascript" src="http://cdn.jsdelivr.net/knockout/3.3.0/knockout.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/sammy/0.7.4/sammy.min.js"></script>
 
-        <script src='scripts/models/posts/RedditModel.js'></script>
+
         <script src='scripts/models/posts/PostModel.js'></script>
         <script src='scripts/models/posts/CommentModel.js'></script>
+        <script src='scripts/models/posts/RedditModel.js'></script>
 
-        <script src='scripts/models/HomeModel.js'></script>
         <script src='scripts/models/ViewModel.js'></script>
         <script src='scripts/ViewEngine.js'></script>
         <script src='scripts/controllers/home.js'></script>

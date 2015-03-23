@@ -14,7 +14,7 @@
 
 // Set @total-width to 100% for a fluid layout
 //@total-width: @gridsystem-width; pixel based layout
-@total-width: 100%;
+@total-width: 960px;
 
 // Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
 // @min-width: 960;
@@ -45,7 +45,7 @@ body {
 }
 
 .row(@columns:@columns) {
-    display: block;
+    display: block!important;
     width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
     margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
     // *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;

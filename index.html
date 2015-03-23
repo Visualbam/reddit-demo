@@ -10,9 +10,9 @@
 
     <body>
 
-        <header>
+        <nav>
             <a href="/"><img src="http://i21.photobucket.com/albums/b270/pacfolly/reddit-logo-square-webtreats.png" alt="logo"></a>
-        </header>
+        </nav>
 
         <div id="main" class="main">
             <!-- <pre data-bind="text: ko.toJSON($data, null, 2)"></pre> -->
@@ -33,21 +33,27 @@
             <div class="elements">
                 <h1>Reddit /r/funny</h1>
                 <ul data-bind="foreach: posts">
-                    <li>
-                        <div class="information">
-                            <h1><a data-bind="attr: { href: url}, text: title">View Comments</a></h1>
-                        </div>
+                    <li class="information">
+                        <h1><a data-bind="attr: { href: url}, text: title">View Comments</a></h1>
                     </li>
                 </ul>
             </div>
         </script>
 
         <script id="postTemplate" type="text/html">
-            <h1 data-bind="text: post.title"></h1>
-            <img data-bind="attr: {src: post.image}" alt="">
-            <ul data-bind="foreach: comments">
-                <li data-bind="text: content"></li>
-            </ul>
+            <section class="post">
+                <div class="content">
+                    <h1 data-bind="text: post.title"></h1>
+                    <div class="image">
+                        <img data-bind="attr: {src: post.image}" alt="">
+                    </div>
+                </div>
+                <ul data-bind="foreach: comments" class="content">
+                    <li data-bind="text: content">
+
+                    </li>
+                </ul>
+            </section>
         </script>
 
 

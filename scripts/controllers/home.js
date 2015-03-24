@@ -1,6 +1,6 @@
-/*globals console, jQuery, ViewModel, ViewEngine, PostModel, RedditModel*/
+/*globals console, jQuery, ViewModel, ViewEngine, PostModel, PostList, PostDetailModel*/
 
-(function (window, $, ViewModel, ViewEngine, PostModel, RedditModel) {
+(function (window, $, ViewModel, ViewEngine, PostModel, PostList, PostDetailModel) {
     "use strict";
 
     window.homeController = function (app) {
@@ -13,7 +13,7 @@
             $.getJSON(url + '/r/funny/.json', function (json) {
                 ViewEngine.setView(new ViewModel({
                     template: 'homeTemplate',
-                    data: new RedditModel.index(json)
+                    data: new PostList(json)
                 }));
             });
         });
@@ -22,11 +22,11 @@
             $.getJSON(url + '/r/funny/' + params.params.id + '.json', function (json) {
                 ViewEngine.setView(new ViewModel({
                     template: 'postTemplate',
-                    data: new RedditModel.show(json)
+                    data: new PostDetailModel(json)
                 }));
             });
         });
 
     };
 
-}(window, jQuery, ViewModel, ViewEngine, PostModel, RedditModel));
+}(window, jQuery, ViewModel, ViewEngine, PostModel, PostList, PostDetailModel));

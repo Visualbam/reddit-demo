@@ -1,0 +1,30 @@
+{
+  "name": "redditdemo",
+  "version": "1.0.0",
+  "description": "A pattern demo using the Reddit API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Visualbam/reddit-demo.git"
+  },
+  "keywords": [
+    "test",
+    "demo",
+    "javascript",
+    "API",
+    "reddit",
+    "pattern"
+  ],
+  "author": "Bruce McElroy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Visualbam/reddit-demo/issues"
+  },
+  "homepage": "https://github.com/Visualbam/reddit-demo",
+  "dependencies": {
+    "hilary": "^2.0.0"
+  }
+}

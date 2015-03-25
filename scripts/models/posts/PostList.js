@@ -3,12 +3,19 @@
 
 app.register({
     name: 'PostList',
-    dependencies: ['PostModel'],
-    factory: function (PostModel) {
+    dependencies: ['PostModel', 'ko'],
+    factory: function (PostModel, ko) {
         "use strict";
 
-        var _self = {};
+        return function (data) {
+            var redditItems = data.data.children,
+                i;
 
-        return _self;
+            this.posts = ko.observableArray([]);
+
+            for (i = 0; i < redditItems.length; i++) {
+                this.posts.push(new PostModel(redditItems[i].data));
+            }
+        };
     }
 });

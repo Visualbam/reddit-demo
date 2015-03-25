@@ -2,19 +2,17 @@
 
 app.register({
     name: 'homeController',
-    dependencies: ['jQuery', 'ViewModel', 'PostList', 'PostDetailModel', 'viewEngine', 'sammy'],
-    factory: function ($, ViewModel, PostList, PostDetailModel, viewEngine, sammy) {
+    dependencies: ['jQuery', 'ViewModel', 'PostList', 'PostDetailModel', 'viewInstance', 'sammy'],
+    factory: function ($, ViewModel, PostList, PostDetailModel, viewInstance, sammy) {
         "use strict";
 
         var url = 'http://www.reddit.com';
-
-        console.log(url);
 
         // Get here is an interceptor for an HTTP GET REQUEST
         // When here 'app.get('#/')' do stuff
         sammy.get('#/', function () {
             $.getJSON(url + '/r/funny/.json', function (json) {
-                viewEngine.setView(new ViewModel({
+                viewInstance.setView(new ViewModel({
                     template: 'homeTemplate',
                     data: new PostList(json)
                 }));
@@ -23,7 +21,7 @@ app.register({
 
         sammy.get('#/posts/:id', function (params) {
             $.getJSON(url + '/r/funny/' + params.params.id + '.json', function (json) {
-                viewEngine.setView(new ViewModel({
+                viewInstance.setView(new ViewModel({
                     template: 'postTemplate',
                     data: new PostDetailModel(json)
                 }));

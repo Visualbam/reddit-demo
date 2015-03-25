@@ -7,8 +7,17 @@ app.register({
     factory: function (PostModel, CommentModel, ko) {
         "use strict";
 
-        var _self = {};
+        return function (data) {
+            var post = data[0].data.children[0].data,
+                commentList = data[1].data.children,
+                i;
 
-        return _self;
+            this.comments = ko.observableArray([]);
+            this.post = new PostModel(post);
+
+            for (i = 0; i < commentList.length; i++) {
+                this.comments.push(new CommentModel(commentList[i].data));
+            }
+        };
     }
 });

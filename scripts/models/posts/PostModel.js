@@ -4,16 +4,21 @@
 app.register({
     name: 'PostModel',
     dependencies: ['ko'],
-    factory: function (ko, data) {
+    factory: function (ko) {
         "use strict";
 
-        data = data || {};
+        return function (data) {
+            data = data || {};
 
-        var _self = {};
+            var imageUrl = data.url.toString().replace('http://imgur.com/', 'https://i.imgur.com/');
 
-        _self.title = ko.observable(data.title || '');
-        _self.url = ko.observable('#/posts/' + data.id || '');
+            if (imageUrl.indexOf('.jpg') <= 0) {
+                imageUrl = imageUrl + '.jpg';
+            }
 
-        return _self;
+            this.title = ko.observable(data.title || '');
+            this.image = ko.observable(imageUrl || null);
+            this.url = ko.observable('#/posts/' + data.id || '');
+        };
     }
 });

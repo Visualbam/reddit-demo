@@ -1,17 +1,16 @@
 /*jslint devel: true, nomen: true, plusplus: true*/
-/*globals ko*/
+/*globals ko, app*/
 
-(function (window, ko) {
-    "use strict";
+app.register({
+    name: 'CommentModel',
+    dependencies: ['ko'],
+    factory: function (ko) {
+        "use strict";
 
-    window.CommentModel = function (data) {
-        data = data || {};
+        return function (data) {
+            data = data || {};
 
-        var _self = {};
-
-        _self.content = ko.observable(data.body || '');
-
-        return _self;
-    };
-
-}(window, ko));
+            this.content = ko.observable(data.body || '');
+        };
+    }
+});

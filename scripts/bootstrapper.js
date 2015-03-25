@@ -6,7 +6,15 @@
         compose;
 
     compose = function () {
-        var sammy = new window.Sammy('.main', function () {});
+        var sammy = new window.Sammy('#main', function () {}),
+            viewEngine = app.resolve('viewEngine');
+
+        app.register({
+            name: 'viewInstance',
+            factory: function () {
+                return viewEngine;
+            }
+        });
 
         app.register({
             name: 'sammy',
@@ -15,8 +23,10 @@
             }
         });
 
-        app.resolve('viewEngine');
         app.resolve('homeController');
+
+        ko.applyBindings(app.resolve('viewInstance').mainVw);
+        sammy.run('#/');
     };
 
     start = function () {

@@ -24,6 +24,6 @@ app.register({
             _self.mainVw.viewModel(viewModel);
         };
 
-        window.viewEngine = _self;
+        return _self;
     }
 });

@@ -1507,3 +1507,40 @@ ul {
 p {
   word-wrap: break-word;
 }
+.tool-tip {
+  position: relative;
+  width: auto;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.tool-tip:hover:before {
+  content: " ";
+  border: transparent solid;
+  border-bottom-width: 6px;
+  border-bottom-color: #e26977;
+  height: 0px;
+  width: 0;
+  position: absolute;
+  left: 50%;
+  top: 98%;
+  margin-top: -4px;
+}
+.tool-tip:hover:after {
+  content: attr(title);
+  color: #fff;
+  border: #e26977 1px solid;
+  text-align: center;
+  background-color: #e26977;
+  opacity: 1;
+  padding: 10px 12px;
+  box-shadow: 0px 2px 0px #e26977;
+  position: absolute;
+  top: 100%;
+  width: 102%;
+  left: -2px;
+  z-index: 10;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 2px 0px #da3e50;
+}

@@ -1,27 +1,29 @@
-/*jslint nomen: true*/
-/*globals jQuery, ko, ViewModel*/
+/*jslint nomen: true, plusplus: true*/
+/*globals app, ko, ViewModel, $*/
+app.register({
+    name: 'viewEngine',
+    dependencies: ['window', 'ko', 'ViewModel'],
+    factory: function (window, ko, ViewModel) {
+        "use strict";
 
-(function (window, $, ko, ViewModel) {
-    "use strict";
+        var _self = {};
 
-    var _self = {};
+        _self.mainVw = {
+            viewModel: ko.observable(new ViewModel())
+        };
 
-    _self.mainVw = {
-        viewModel: ko.observable(new ViewModel())
-    };
+        _self.setView = function (viewModel) {
+            if (!viewModel instanceof ViewModel) {
+                throw new Error('When setting the view, a ViewModel is required.');
+            }
 
-    _self.setView = function (viewModel) {
-        if (!viewModel instanceof ViewModel) {
-            throw new Error('When setting the view, a ViewModel is required.');
-        }
+            if (window.scroll) {
+                window.scroll(0, 0);
+            }
 
-        if (window.scroll) {
-            window.scroll(0, 0);
-        }
+            _self.mainVw.viewModel(viewModel);
+        };
 
-        _self.mainVw.viewModel(viewModel);
-    };
-
-    window.ViewEngine = _self;
-
-}(window, jQuery, ko, ViewModel));
+        window.viewEngine = _self;
+    }
+});

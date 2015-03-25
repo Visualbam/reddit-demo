@@ -1,16 +1,16 @@
-/*jslint devel: true, eqeq: true, nomen: true*/
-/*globals ko*/
+/*globals app*/
+app.register({
+    name: 'ViewModel',
+    factory: function (model) {
+        "use strict";
 
-(function (ko, window) {
-    "use strict";
-
-    window.ViewModel = function (model) {
         model = model || {};
 
         this.template = model.template || 'defaultTemplate';
         this.data = model.data || {};
+        this.before = model.before || undefined;
+        this.after = model.after || undefined;
 
         return this;
-    };
-
-}(ko, window));
+    }
+});

@@ -1,22 +1,14 @@
 /*jslint devel: true, nomen: true, plusplus: true*/
-/*globals ko, PostModel*/
+/*globals ko, PostModel, app, data*/
 
-(function (window, ko, PostModel) {
-    "use strict";
+app.register({
+    name: 'PostList',
+    dependencies: ['PostModel'],
+    factory: function (PostModel) {
+        "use strict";
 
-    window.PostList = function (data) {
-        var _self = {},
-            redditItems = data.data.children,
-            i;
-
-        _self.posts = ko.observableArray([]);
-
-        // Loop through reddit data from API and add to our VM
-        for (i = 0; i < redditItems.length; i++) {
-            _self.posts.push(new PostModel(redditItems[i].data));
-        }
+        var _self = {};
 
         return _self;
-    };
-
-}(window, ko, PostModel));
+    }
+});

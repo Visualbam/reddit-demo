@@ -16,6 +16,10 @@ app.register({
                 imageUrl = imageUrl + '.jpg';
             }
 
+            if (imageUrl.indexOf('.gifv') >= 0) {
+                imageUrl = 'http://www.pakistancardealers.com/img/no-image.jpg';
+            }
+
             this.title = ko.observable(data.title || '');
             this.image = ko.observable(imageUrl || null);
             this.url = ko.observable('#/posts/' + data.id || '');

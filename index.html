@@ -34,7 +34,11 @@
                 <h1>Reddit /r/funny</h1>
                 <ul data-bind="foreach: posts">
                     <li class="information">
-                        <h1><a data-bind="attr: { href: url}, text: title">View Comments</a></h1>
+                        <a data-bind="attr: { href: url}">
+                            <div class="image">
+                                <img data-bind="attr: {src: image}">
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </div>

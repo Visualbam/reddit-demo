@@ -474,14 +474,18 @@ html {
 }
 .elements ul li:hover {
   background: #fafafa;
-  border: 1px solid #ebeaeb;
+  border: 2px solid #e77e8b;
 }
 .elements ul li img {
-  width: 100%;
+  width: 225%;
+  position: absolute;
+  top: 0;
+  left: -50%;
 }
 .elements ul .image {
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 .elements .controls {
   display: inline;
@@ -1499,4 +1503,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+p {
+  word-wrap: break-word;
 }

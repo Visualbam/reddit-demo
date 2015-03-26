@@ -1527,7 +1527,7 @@ p {
   margin-top: -4px;
 }
 .tool-tip:hover:after {
-  content: attr(title);
+  content: attr(data-tooltip);
   color: #fff;
   border: #e26977 1px solid;
   text-align: center;

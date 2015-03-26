@@ -33,7 +33,7 @@
             <div class="elements">
                 <h1>Reddit /r/funny</h1>
                 <ul data-bind="foreach: posts">
-                    <li data-bind="attr: {title: title}" class="information tool-tip">
+                    <li data-bind="attr: {'data-tooltip': title}" class="information tool-tip">
                         <a data-bind="attr: { href: url}">
                             <div class="image">
                                 <img data-bind="attr: {src: image}">

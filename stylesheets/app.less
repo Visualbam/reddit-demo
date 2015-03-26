@@ -37,7 +37,7 @@
 html {
     box-sizing: border-box;
     font-size: @rem-base;
-    background: #f5f5f5;
+    background: #efefef;
 }
 
 *, *:before, *:after {
@@ -60,6 +60,9 @@ nav {
     }
 }
 
+
+
+
 .main {
     .row(12);
     max-width: 960px;
@@ -77,22 +80,7 @@ nav {
     color: dimgray;
 }
 
-.content {
-    &:extend(.card-style);
-    line-height: 1.5;
-    transition: all 0.25s ease-in-all;
-    margin-bottom: 1rem;
 
-    h1 {
-        color: @primary;
-        font-size: 16px;
-        text-transform: uppercase;
-        font-weight: bold;
-        border-bottom: 1px solid #efefef;
-        margin: 0 0 1rem 0;
-        padding-bottom: 10px;
-    }
-}
 
 ul {
     list-style: none;
@@ -141,5 +129,153 @@ p {
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
         box-shadow: 0px 2px 0px @primary;
+    }
+}
+
+
+// Header
+.main-header {
+    background-color: @primary;
+    height: 90px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    height: 100px;
+
+    .main-header-title {
+        color: hsl(0,0%,100%);
+        margin: 0 auto;
+        padding: 20px 10px;
+        height: 100%;
+        padding: 0;
+
+        h1 {
+            background-image: url('../images/imcutlogo.png');
+            background-repeat: no-repeat;
+            background-size: 120px;
+            color: transparent;
+            direction: ltr;
+            display: inline-block;
+            font-size: 0;
+            height: 60px;
+            position: absolute;
+            margin: 0;
+            overflow: hidden;
+            text-indent: -9999px;
+            width: 130px;
+            top: 23px;
+            left: 30px;
+        }
+        span {
+            font-size: 1rem;
+            font-weight: 200;
+            position: absolute;
+            left: 180px;
+            top: 40px;
+        }
+    }
+    .main-header-search {
+        background-color: @charcoal;
+        background-image: url('http://i.imgur.com/zqZfaSF.png');
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        background-position: 30px center;
+        bottom: 0;
+        height: auto;
+        left: 200px;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        input {
+            background-color: transparent;
+            border: 0;
+            font-size: 1.25rem;
+            font-weight: 200;
+            height: 100%;
+            outline: 0;
+            width: 100%;
+            padding: 0 160px 0 80px;
+            color: white;
+
+            &::-webkit-input-placeholder {
+                color: hsl(0,0%,50%);
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+                color: hsl(0,0%,50%);
+            }
+            &::-moz-placeholder {  /* Firefox 19+ */
+                color: hsl(0,0%,50%);
+            }
+            &:-ms-input-placeholder {
+                color: hsl(0,0%,50%);
+            }
+        }
+    }
+}
+
+.section-search-results {
+    // display: none;
+    background-color: @primary;
+    overflow-y: scroll;
+    padding: 0 30px 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0px 3px 37px -12px rgba(0,0,0,0.5);
+
+    &::before {
+        content: '';
+        display: block;
+        height: 50px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 50px;
+        left: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .search-results-feeds {
+        height: 35.41vw;
+        overflow-y: scroll;
+        padding: 25px 0;
+    }
+
+    li {
+        color: hsl(0,0%,100%);
+        font-size: 1rem;
+        font-weight: 200;
+        padding: 10px 0;
+        span {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: darken(@primary, 15%);
+            display: block;
+        }
+    }
+    h2 {
+        border-bottom: 1px solid darken(@primary, 10%);
+        color: darken(@primary, 15%);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        text-transform: uppercase;
     }
 }

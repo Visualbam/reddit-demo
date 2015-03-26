@@ -10,9 +10,32 @@
 
     <body>
 
-        <nav>
-            <a href="/"><img src="http://i21.photobucket.com/albums/b270/pacfolly/reddit-logo-square-webtreats.png" alt="logo"></a>
-        </nav>
+        <header class="main-header">
+            <div class="main-header-title">
+                <h1>imcut</h1>
+            </div>
+            <form action="" class="main-header-search">
+                <input placeholder="Search for cats, dogs and more (maybe)…" type="search" />
+            </form>
+            <section class="section-search-results">
+                <div class="search-results-feeds">
+                    <h2>Results:</h2>
+                    <ul>
+                        <li>Probably preaching to the choir, but DO YOUR RESEARCH before getting a dog <span>/r/dogs</span></li>
+                        <li>Dear Dog Owners : Please keep your dog on a leash.<span>/r/nosleep</span></li>
+                        <li>What crazy myths have you heard about dogs?<span>/r/nosleep</span></li>
+                        <li>My dog groomer returned the wrong dog to me, four months ago.<span>/r/nosleep</span></li>
+                        <li>No "fenced-in yard"? No dog. Ridiculous!<span>/r/nosleep</span></li>
+                        <li>From a non-dog owner: Why tell me it's a rescue dog?<span>/r/dogs</span></li>
+                        <li>Hug your dog regardless of how stupid either of you may be.<span>/r/dogs</span></li>
+                        <li>Hug your dog regardless of how stupid either of you may be.<span>/r/dogs</span></li>
+                        <li>Hug your dog regardless of how stupid either of you may be.<span>/r/dogs</span></li>
+                        <li>Hug your dog regardless of how stupid either of you may be.<span>/r/dogs</span></li>
+                        <li>Hug your dog regardless of how stupid either of you may be.<span>/r/dogs</span></li>
+                    </ul>
+                </div>
+            </section>
+        </header>
 
         <div id="main" class="main">
             <!-- <pre data-bind="text: ko.toJSON($data, null, 2)"></pre> -->
@@ -30,6 +53,10 @@
         <script id="defaultTemplate" type="text/html"></script>
 
         <script id="homeTemplate" type="text/html">
+
+        </script>
+
+        <!-- <script id="poop" type="text/html">
             <div class="elements">
                 <h1>Reddit /r/funny</h1>
                 <ul data-bind="foreach: posts">
@@ -42,7 +69,7 @@
                     </li>
                 </ul>
             </div>
-        </script>
+        </script> -->
 
         <script id="postTemplate" type="text/html">
             <section class="post">

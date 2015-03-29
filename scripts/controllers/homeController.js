@@ -15,13 +15,9 @@ app.register({
             count,
             i;
 
-        $.ajaxSetup({
-            async: false
-        });
-
-        addPage = function () {
+        addPage = function (request) {
             for (i = 1; i < 3; i++) {
-                $.getJSON(url + '/.json?count=25&after=' + nextPage, function (json) {
+                $.getJSON(url + request + nextPage, function (json) {
                     nextPage = json.data.after;
                     pages.push(json.data);
                 });
@@ -29,14 +25,12 @@ app.register({
         };
 
         sammy.get('#/', function () {
-
-
+            $.ajaxSetup({
+                async: false
+            });
             $.when(
-                $.getJSON(url + '/.json', function (json) {
-                    nextPage = json.data.after;
-                    pages.push(json.data);
-                }),
-                addPage()
+                addPage('/.json'),
+                addPage('/.json?count=25&after=')
             ).done(function (json) {
                 json = pages;
 

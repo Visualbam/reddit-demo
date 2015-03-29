@@ -12,9 +12,9 @@ app.register({
 
             var imageUrl = data.url.toString().replace('http://imgur.com/', 'https://i.imgur.com/').replace('gifv', 'gif');
 
-            if (imageUrl.indexOf('.jpg') <= 0) {
-                imageUrl = imageUrl + '.jpg';
-            }
+//            if (imageUrl.indexOf('.jpg') <= 0) {
+//                imageUrl = imageUrl + '.jpg';
+//            }
 
             this.title = ko.observable(data.title || '');
             this.image = ko.observable(imageUrl || null);

@@ -10,17 +10,22 @@ app.register({
         var url = 'http://www.reddit.com',
             getPages,
             pages = [],
-            addPage,
+            getData,
+            addPages,
             nextPage,
             count,
             i;
 
-        addPage = function (request) {
-            for (i = 1; i < 3; i++) {
-                $.getJSON(url + request + nextPage, function (json) {
-                    nextPage = json.data.after;
-                    pages.push(json.data);
-                });
+        getData = function (request) {
+            $.getJSON(url + request, function (json) {
+                nextPage = json.data.after;
+                pages.push(json.data);
+            });
+        };
+
+        addPages = function () {
+            for (i = 1; i < 4; i++) {
+                getData('/.json?count=25&after=' + nextPage);
             }
         };
 
@@ -29,8 +34,8 @@ app.register({
                 async: false
             });
             $.when(
-                addPage('/.json'),
-                addPage('/.json?count=25&after=')
+                getData('/.json'),
+                addPages()
             ).done(function (json) {
                 json = pages;
 

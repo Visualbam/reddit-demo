@@ -10,15 +10,22 @@ app.register({
         return function (data) {
             var redditItems = data.children,
                 post,
-                i;
+                i,
+                j;
 
             this.posts = ko.observableArray([]);
 
-            for (i = 0; i < redditItems.length; i++) {
-                post = redditItems[i].data;
+            for (i = 0; i < data.length; i++) {
+                for (j = 0; j < data[i].children.length; j++) {
+                    post = data[i].children[j].data;
 
-                if (post.url.indexOf('.jpg') > -1 || post.url.indexOf('.gif') > -1 || !post.url.indexOf('bucket') > -1) {
-                    this.posts.push(new PostModel(post));
+                    if (post.url.indexOf('.jpg') <= 0) {
+                        post.url = post.url + '.jpg';
+                    }
+
+                    if (post.url.indexOf('imgur') > -1) {
+                        this.posts.push(new PostModel(post));
+                    }
                 }
             }
         };

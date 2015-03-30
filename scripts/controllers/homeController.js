@@ -12,45 +12,38 @@ app.register({
             pages = [],
             getData,
             addPages,
-            nextPage,
-            count,
-            i;
+            setViewModel,
+            count;
 
-        getData = function (request) {
-            $.getJSON(url + request, function (json) {
-                nextPage = json.data.after;
-                pages.push(json.data);
-            });
-        };
+        getData = function (request, count) {
+            var nextRequest;
 
-        addPages = function (request) {
-            for (i = 1; i < 4; i++) {
-                getData(request + nextPage);
+            if (count < 10) {
+                $.getJSON(url + request, function (json) {
+                    nextRequest = '/.json?count=25&after=' + json.data.after;
+                    pages.push(json.data);
+
+                    getData(nextRequest, count++);
+                });
+            } else {
+                setViewModel();
             }
         };
 
+        setViewModel = function () {
+            // set to empty VM
+            // Give view instance an update data method
+            // When data gets updated add post model to posts observable
+
+            viewInstance.setView(new ViewModel({
+                template: 'homeTemplate',
+                data: new PostList(pages)
+            }));
+        };
+
         sammy.get('#/', function () {
-            $.ajaxSetup({
-                async: false
-            });
-            $.when(
-                getData('/.json'),
-                addPages('/.json?count=25&after=')
-            ).done(function (json) {
-                json = pages;
-
-                for (i = 0; i < json.length; i++) {
-                    viewInstance.setView(new ViewModel({
-                        template: 'homeTemplate',
-                        data: new PostList(json[i])
-                    }));
-                }
-
-            });
+            getData('/.json', 0);
         });
-
-        // Get here is an interceptor for an HTTP GET REQUEST
-        // When here 'app.get('#/')' do stuff
 
 //        sammy.get('#/posts/:id', function (params) {
 //            $.getJSON(url + '/r/funny/' + params.params.id + '.json', function (json) {

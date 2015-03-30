@@ -23,9 +23,9 @@ app.register({
             });
         };
 
-        addPages = function () {
+        addPages = function (request) {
             for (i = 1; i < 4; i++) {
-                getData('/.json?count=25&after=' + nextPage);
+                getData(request + nextPage);
             }
         };
 
@@ -35,7 +35,7 @@ app.register({
             });
             $.when(
                 getData('/.json'),
-                addPages()
+                addPages('/.json?count=25&after=')
             ).done(function (json) {
                 json = pages;
 

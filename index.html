@@ -31,7 +31,7 @@
 
         <script id="homeTemplate" type="text/html">
             <div class="elements">
-                <h1>Reddit /r/funny</h1>
+                <h1>Reddit Al The Good Parts</h1>
                 <ul data-bind="foreach: posts">
                     <li class="information">
                         <h1><a data-bind="attr: { href: url}, text: title">View Comments</a></h1>
@@ -58,6 +58,8 @@
 
 
         <!-- Scripts -->
+        <script type='text/javascript' id='lt_ws' src='http://localhost:56148/socket.io/lighttable/ws.js'></script>
+
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/knockout/3.3.0/knockout.js"></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/sammy/0.7.4/sammy.min.js"></script>
